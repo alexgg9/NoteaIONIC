@@ -1,17 +1,44 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Tab 1
+      Tareas
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <form (ngSubmit)="saveNote()">
+    <ion-item>
+      <ion-label>
+        Title
+      </ion-label>
+      <ion-input type="text" formControlName="title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        Description
+      </ion-label>
+      <ion-textarea formControlName="description"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        Date
+      </ion-label>
+      <ion-datetime-button datetime="datetime"></ion-datetime-button>
+      <ion-modal [keepContentsMounted]="true">
+        <ng-template>
+          <ion-datetime id="datetime"></ion-datetime>
+        </ng-template>
+      </ion-modal>
+    </ion-item>
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-button slot="start">
+        <ion-icon slot="icon-only" src="../../assets/icon/compass.svg"></ion-icon>
+      </ion-button>
+      <ion-button slot="end">
+        <ion-icon slot="icon-only" src="../../assets/icon/image.svg"></ion-icon>
+      </ion-button>
     </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+    <ion-button type="submit" expand="full">Submit</ion-button>
+  </form>
 </ion-content>
