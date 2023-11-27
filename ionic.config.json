@@ -1,0 +1,7 @@
+{
+  "name": "NoteaIONIC",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
