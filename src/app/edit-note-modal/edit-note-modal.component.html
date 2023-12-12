@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="header-title">Edit Note</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item class="form-item">
+    <ion-label>Title</ion-label>
+    <ion-input [(ngModel)]="note.title" class="form-input"></ion-input>
+  </ion-item>
+
+  <ion-item class="form-item">
+    <ion-label>Description</ion-label>
+    <ion-textarea [(ngModel)]="note.description" class="form-textarea"></ion-textarea>
+  </ion-item>
+
+  <ion-button expand="full" (click)="saveChanges()" class="form-button">Save</ion-button>
+  <ion-button expand="full" (click)="close()" class="form-button">Close</ion-button>
+</ion-content>

@@ -1,24 +1,24 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="primary">
     <ion-title>
-      Tareas
+      New Note
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <form (ngSubmit)="saveNote()">
+  <form [formGroup]="form" (ngSubmit)="saveNote()">
     <ion-item>
       <ion-label>
         Title
       </ion-label>
-      <ion-input type="text" formControlName="title"></ion-input>
+      <ion-input label="Title" type="text" formControlName="title"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>
         Description
       </ion-label>
-      <ion-textarea formControlName="description"></ion-textarea>
+      <ion-textarea label="Description" formControlName="description"></ion-textarea>
     </ion-item>
     <ion-item>
       <ion-label>
@@ -33,12 +33,12 @@
     </ion-item>
     <ion-toolbar>
       <ion-button slot="start">
-        <ion-icon slot="icon-only" src="../../assets/icon/compass.svg"></ion-icon>
+        <ion-icon slot="icon-only" src="assets/icon/compass.svg"></ion-icon>
       </ion-button>
-      <ion-button slot="end">
-        <ion-icon slot="icon-only" src="../../assets/icon/image.svg"></ion-icon>
+      <ion-button slot="end" (click)="takePic()">
+        <ion-icon slot="icon-only" src="assets/icon/image.svg"></ion-icon>
       </ion-button>
     </ion-toolbar>
-    <ion-button type="submit" expand="full">Submit</ion-button>
+    <ion-button type="submit" expand="full" [disabled]="!form.valid">Submit</ion-button>
   </form>
 </ion-content>
