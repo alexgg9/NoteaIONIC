@@ -31,14 +31,23 @@
         </ng-template>
       </ion-modal>
     </ion-item>
-    <ion-toolbar>
-      <ion-button slot="start">
-        <ion-icon slot="icon-only" src="assets/icon/compass.svg"></ion-icon>
-      </ion-button>
+    <ion-item>
+      <ion-label>
+        Photo
+      </ion-label>
+      <img [src]="note?.img">
       <ion-button slot="end" (click)="takePic()">
         <ion-icon slot="icon-only" src="assets/icon/image.svg"></ion-icon>
       </ion-button>
-    </ion-toolbar>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        Position
+      </ion-label>
+      <ion-button slot="end" (click)="openMapModal()">
+        <ion-icon slot="icon-only" src="assets/icon/compass.svg"></ion-icon>
+      </ion-button>
+    </ion-item>
     <ion-button type="submit" expand="full" [disabled]="!form.valid">Submit</ion-button>
   </form>
 </ion-content>

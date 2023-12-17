@@ -1,0 +1,40 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-top: 100px;
+  }
+  
+  .ion-content-centered {
+    max-width: 800px; 
+    width: 90%; 
+    padding: 20px;
+  }
+   
+  p {
+    font-size: 20px;
+    line-height: 1.5;
+    color: #888;
+    margin-bottom: 12px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sosmed-horizontal {
+    display: flex;
+    justify-content: center;
+  }
+
+  .sosmed-horizontal ion-icon {
+    font-size: 28px;
+    margin: 10px;
+  }
+
+  .title-about {
+    font-size: 28px;
+  }

@@ -51,9 +51,15 @@ export class Tab2Page {
     await modal.present();
   }
 
-  deleteNoteSliding(note: Note) {
-    this.deleteNote(note);
+  async noteSwiped(event: any, note: Note) {
+    if (event.detail.side === 'end') {
+        await this.deleteNote(note);
+    }else{
+      await this.editNote(note);
+    }
   }
+
+
   ionViewDidEnter(){
     this.platform.ready().then(() => {
       console.log(this.platform.height());
@@ -65,6 +71,7 @@ export class Tab2Page {
 
 
   loadNotes(fromFirst:boolean, event?:any){
+
     if(fromFirst==false && this.lastNote==undefined){
       this.isInfiniteScrollAvailable=false;
       event.target.complete();
@@ -76,9 +83,11 @@ export class Tab2Page {
         this._notes$.next(d);
       }else{
         this._notes$.next([...this._notes$.getValue(),...d]);
+        if(d.length<this.notesPerPage){
+          this.isInfiniteScrollAvailable=false;
+        }
       }
     })
-    
   }
   private convertPromiseToObservableFromFirebase(promise: Promise<any>): Observable<Note[]> {
     return from(promise).pipe(

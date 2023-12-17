@@ -1,4 +1,4 @@
-import { enableProdMode,importProvidersFrom } from '@angular/core';
+import { enableProdMode,importProvidersFrom, isDevMode } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { RouteReuseStrategy, provideRouter } from '@angular/router';
 import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalone';
@@ -15,6 +15,7 @@ import { provideFirebaseApp } from '@angular/fire/app';
 import { initializeApp } from 'firebase/app';
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
 import { IonicModule } from '@ionic/angular';
+import { provideServiceWorker } from '@angular/service-worker';
 // Call the element loader before the bootstrapModule/bootstrapApplication call
 defineCustomElements(window);
 if (environment.production) {
@@ -26,14 +27,22 @@ bootstrapApplication(AppComponent, {
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     provideIonicAngular(),
     importProvidersFrom([
-                          provideFirebaseApp(()=>initializeApp(environment.firebaseConfig)), 
-                          provideFirestore(()=>getFirestore())
-                        ]), //new
+        provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+        provideFirestore(() => getFirestore())
+    ]),
     importProvidersFrom([
-                          AngularFirestoreModule, 
-                          AngularFireModule.initializeApp(environment.firebaseConfig)
-                        ]), //old
-    importProvidersFrom(IonicModule.forRoot({})), //for standalone
+        AngularFirestoreModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig)
+    ]),
+    importProvidersFrom(IonicModule.forRoot({})),
     provideRouter(routes),
-  ],
+    provideServiceWorker('ngsw-worker.js', {
+        enabled: !isDevMode(),
+        registrationStrategy: 'registerWhenStable:30000'
+    }),
+    provideServiceWorker('ngsw-worker.js', {
+        enabled: !isDevMode(),
+        registrationStrategy: 'registerWhenStable:30000'
+    })
+],
 });

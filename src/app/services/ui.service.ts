@@ -31,8 +31,8 @@ export class UIService {
 
   async showToast(msg:string,
     color:string='primary',
-    duration:number=3000,
-    position:"top"|"bottom"|"middle"|undefined="bottom",
+    duration:number=1000,
+    position:"top"|"bottom"|"middle"|undefined="middle",
     ):Promise<void>{
     let toast: HTMLIonToastElement = await this.toastC.create({
       message:msg,

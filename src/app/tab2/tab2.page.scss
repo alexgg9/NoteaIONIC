@@ -1,0 +1,20 @@
+.note-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+.note-card {
+    width: 100%;
+    max-width: 2200px;
+}
+.header-title {
+    display: flex;
+    align-items: center;
+}
+.header-title img {
+    width: 46px;
+    height: 46px;
+    margin-right: 4px;
+    margin-left: 8px;
+}

@@ -15,6 +15,20 @@
     <ion-textarea [(ngModel)]="note.description" class="form-textarea"></ion-textarea>
   </ion-item>
 
+  <ion-item>
+    <ion-label>Photo</ion-label>
+    <ion-button slot="end" (click)="takePic()">
+      <ion-icon slot="icon-only" src="assets/icon/image.svg"></ion-icon>
+    </ion-button>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Position</ion-label>
+    <ion-button slot="end" (click)="openModalMap()">
+      <ion-icon slot="icon-only" src="assets/icon/compass.svg"></ion-icon>
+    </ion-button>
+  </ion-item>
+
   <ion-button expand="full" (click)="saveChanges()" class="form-button">Save</ion-button>
   <ion-button expand="full" (click)="close()" class="form-button">Close</ion-button>
 </ion-content>

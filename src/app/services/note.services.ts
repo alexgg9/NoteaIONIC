@@ -30,8 +30,8 @@ export class NoteService {
     
   }
   addNote(note: Note): Promise<DocumentReference> {
-    return this.myCollection.add(note);
-  }
+      return this.myCollection.add(note);
+    }
   //todo: paginated read
   readAll(): Observable<any> {
     return this.myCollection.get();
@@ -49,6 +49,7 @@ export class NoteService {
       return this.myCollection.ref.orderBy('date','asc').startAfter(firstElement).limit(numberOfElements).get();
 
   }
+
   readNote(key: string):  Observable<any> {
     return this.myCollection.doc(key).get();
   }

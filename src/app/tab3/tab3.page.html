@@ -1,17 +1,27 @@
-<ion-header [translucent]="true">
-  <ion-toolbar color="primary">
-    <ion-title>
-      About Me
-    </ion-title>
-  </ion-toolbar>
+<ion-header>
+   <ion-toolbar color="primary">
+    <ion-title>About me</ion-title>
+   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+<div class="container">
+<ion-content class="ion-content-centered">
+   <ion-card>
+    <ion-card-header>
+     <ion-card-title class="title-about">Sobre mí</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>
+        Soy Alejandro Gálvez García, estudiante de grado superior en Desarrollo de Aplicaciones Multiplataforma, apasionado por la creación y desarrollo de soluciones tecnológicas innovadoras. Mi enfoque se centra en aprender constantemente y mantenerme al tanto de las últimas tecnologías emergentes en el campo del desarrollo de software.
+      </p>
+      <p>
+        Destaco por mi capacidad para enfrentar desafíos, resolver problemas de manera eficiente y colaborar en equipo. Estoy emocionado por contribuir al mundo del desarrollo de software, aportando soluciones creativas y manteniéndome adaptable en un entorno tecnológico en constante evolución.
+      </p>
+      <div class="sosmed-horizontal pt-3 pb-3">
+        <a href="https://github.com/alexgg9"><ion-icon src="assets/icon/logo-github.svg" style="font-size: 45px;"></ion-icon></a>
+        <a href="www.linkedin.com/in/alejandro-gálvez-garcía"><ion-icon src="assets/icon/logo-linkedin.svg" style="font-size: 45px;"></ion-icon></a>
+    </div>
+   </ion-card-content>
+   </ion-card>
 </ion-content>
+</div>

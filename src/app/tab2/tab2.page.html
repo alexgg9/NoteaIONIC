@@ -1,8 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="primary">
-    <ion-title>
-      Notes
-    </ion-title>
+    <div class="header-title">
+      <img src="assets/icon/favicon.png" alt="Logo">
+      <ion-title>
+        Notes
+      </ion-title>
+    </div>
   </ion-toolbar>
 </ion-header>
 
@@ -17,7 +20,7 @@
 
   <ion-list>
     @for(note of _notes$ | async;track note.key){
-    <ion-item-sliding (ionSwipe)="deleteNoteSliding(note)">
+    <ion-item-sliding (ionSwipe)="noteSwiped($event, note)">
       <ion-item-options side="start">
         <ion-item-option color="primary">
           <ion-icon slot="start" src="assets/icon/pencil-outline.svg" (click)="editNote(note)" style="zoom: 1.5;"></ion-icon>
@@ -25,8 +28,19 @@
       </ion-item-options>
   
       <ion-item>
-        <ion-label>{{note.title}}</ion-label>
-        <p>{{note.description}}</p>
+        <ion-thumbnail slot="start">
+          <img [src]="note.img">
+        </ion-thumbnail>
+        <ion-card class="note-card">
+          <ion-card-header>
+            <ion-card-title>{{ note.title }}</ion-card-title>
+            <ion-card-subtitle>{{ note.description }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content class="note-content">
+            <p>Date: {{ note.date }}</p>
+            <p>Position: {{ note.position }}</p>
+          </ion-card-content>
+        </ion-card>
       </ion-item>
   
       <ion-item-options side="end">
